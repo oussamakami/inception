@@ -1,0 +1,78 @@
+name: website
+
+services:
+
+    mariadb:
+        container_name: database
+        build: ./src/mariadb
+        expose:
+            - "3306"
+        env_file:
+            - path: ./.env
+              required: true
+        restart: always
+        volumes:
+            - type: volume
+              source: db_data
+              target: /database
+              read_only: false
+        networks:
+            back_network:
+                aliases:
+                    - database
+                    - mariadb
+                    - db
+
+    php:
+        container_name: wordpress
+        build: ./src/wordpress
+        expose:
+            - "9000"
+        env_file:
+            - path: ./.env
+              required: true
+        restart: always
+        volumes:
+            - type: volume
+              source: web_files
+              target: /www
+              read_only: false
+        networks:
+            back_network:
+                aliases:
+                    - wordpress
+                    - php
+            front_network:
+                aliases:
+                    - wordpress
+                    - php
+                    - backend
+                    - server
+        depends_on:
+            - mariadb
+
+    nginx:
+        container_name: webserver
+        build: ./src/nginx
+        ports:
+            - "443:443"
+        restart: always
+        volumes:
+            - type: volume
+              source: web_files
+              target: /www
+              read_only: false
+        networks:
+            front_network:
+                aliases:
+                    - webserver
+                    - nginx
+                    - frontend
+
+volumes:
+    db_data:
+    web_files:
+
+networks:
+    back_network:
+    front_network:
