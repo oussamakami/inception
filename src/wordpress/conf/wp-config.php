@@ -29,7 +29,7 @@ define( 'DB_USER', '$DB_USER' );
 define( 'DB_PASSWORD', '$DB_PASSWD' );
 
 /** Database hostname */
-define( 'DB_HOST', 'database' );
+define( 'DB_HOST', '$DB_HOST' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
@@ -48,13 +48,13 @@ define( 'DB_COLLATE', '' );
  *
  * @since 2.6.0
  */
-define( 'AUTH_KEY',         'put your unique phrase here' );
-define( 'SECURE_AUTH_KEY',  'put your unique phrase here' );
-define( 'LOGGED_IN_KEY',    'put your unique phrase here' );
-define( 'NONCE_KEY',        'put your unique phrase here' );
-define( 'AUTH_SALT',        'put your unique phrase here' );
-define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );
-define( 'LOGGED_IN_SALT',   'put your unique phrase here' );
+define( 'AUTH_KEY',         'St0iD3QAXbT17puXJa8Ijk6T2Myp5N' );
+define( 'SECURE_AUTH_KEY',  'AfDUb9EAyRBNGtOxNZqNWP5HGdh9qX' );
+define( 'LOGGED_IN_KEY',    'dJThaORWiAXNglxDMTziC0qzOOgB3o' );
+define( 'NONCE_KEY',        'puYilD4PCXnzQ6EK7UAcKn4DyDdh5q' );
+define( 'AUTH_SALT',        'Ru0HJvTacDUdIiw4qi97MGtNqtLmRj' );
+define( 'SECURE_AUTH_SALT', 'fz03YQFJ8lFFXqL2Ej2TpZZ8BqjvVh' );
+define( 'LOGGED_IN_SALT',   'JMcT0Crb0Qtg5DdvSBna76QaZm17r4' );
 define( 'NONCE_SALT',       'put your unique phrase here' );
 
 /**#@-*/
